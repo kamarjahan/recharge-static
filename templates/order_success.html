@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+</head>
+
+
+
+
+<body>
+
+
+    <div class="container">
+        <header>
+            <h1>Order Successful</h1>
+        </header>
+        <main>
+            <p>Your order has been placed successfully!</p>
+            <p>Order ID: {{ order['_id'] }}</p>
+            <p>Operator: {{ order['operator'] }}</p>
+            <p>Circle: {{ order['circle'] }}</p>
+            <p>Mobile Number: {{ order['mobile'] }}</p>
+            <p>Amount: {{ order['amount'] }}</p>
+            <p>Status: {{ order['status'] }}</p>
+        </main>
+		
+		
+		<a href="http://127.0.0.1:5000/my_orders">CLICK FOR DETAILED REVIEW</a>
+        <footer>
+            <p>&copy; 2024 Recharge Website. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

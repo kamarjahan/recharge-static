@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recharge</h1>
+        </header>
+		<p><a href="http://127.0.0.1:5000/my_orders">GOTO MY Orders</a>
+        <main>
+            {% if 'user_id' in session %}
+                <form id="rechargeForm" action="{{ url_for('recharge') }}" method="post">
+                    <label for="operator">Operator:</label>
+                    <select id="operator" name="operator" required>
+                        <option value="Jio">Jio</option>
+                        <option value="Airtel">Airtel</option>
+                        <option value="Vi">Vi</option>
+                        <option value="BSNL">BSNL</option>
+                    </select>
+
+                    <label for="circle">Circle:</label>
+                    <select id="circle" name="circle" required>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="KERALA">KERALA</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="UTTAR PRADESH">UTTAR PRADESH</option>
+						<option value="Goa">Goa</option>
+						<option value="punjab">punjab</option>
+						<option value="telengana">telengana</option>
+						<option value="andhra PRADESH">andhra PRADESH</option>
+						<option value="Jammu And Kashmir">Jammu And Kashmir</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="orissa">orissa</option>
+						<option value="mizoram">mizoram</option>
+						<option value="haryana">haryana</option>
+						<option value="gujarat">gujarat</option>
+						<option value="odisa">odisa</option>
+						<option value="manipur">manipur</option>
+						<option value="rajasthan">rajasthan</option>
+						<option value="nagaland">nagaland</option>
+                        <!-- Add all states -->
+                    </select>
+
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="text" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" required>
+
+                    <label for="payment_method">Payment Method:</label>
+                    <select id="payment_method" name="payment_method" required>
+                        <option value="Cash on Hand">Cash on Hand</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Card">Card</option>
+                        <option value="Internet Banking">Internet Banking</option>
+                    </select>
+
+                    <button type="submit">Recharge</button>
+                </form>
+            {% else %}
+                <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('signup') }}">sign up</a> to recharge.</p>
+            {% endif %}
+        </main>
+        <footer>
+            <p>&copy; 2024 Recharge Website. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

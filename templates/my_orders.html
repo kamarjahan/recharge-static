@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Orders</h1>
+            <a href="{{ url_for('logout') }}">Log Out</a>
+        </header>
+		<p><a href="http://127.0.0.1:5000/"> GOTO RECHARGE FOR YOUR ORDERS </a></p>
+		    
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OrderID</th>
+						<th>Operator</th>
+                        <th>Circle</th>
+                        <th>Mobile Number</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Payment Method</th>
+                        </tr>
+                </thead>
+				<tbody>
+                        {% for order in orders %}
+                    <tr>
+                        <td>{{ order['_id'] }}</td>
+                        <td>{{ order['operator'] }}</td>
+                        <td>{{ order['circle'] }}</td>
+                        <td>{{ order['mobile'] }}</td>
+                        <td>{{ order['amount'] }}</td>
+                        <td>{{ order['status'] }}</td>
+                        <td>{{ order['payment_method'] }}</td>
+                    </tr>
+
+
+                     {% endfor %}
+</tbody>
+</table>
+</main>
+<footer>
+<p>© 2024 Recharge Website. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>
